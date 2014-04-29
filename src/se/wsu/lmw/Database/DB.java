@@ -14,8 +14,9 @@ public class DB {
 
     public static Connection myConnection() throws ClassNotFoundException, SQLException {
 
-        Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bentaralabudb", "root", "r900214");//
+       
+        Class.forName("net.sourceforge.jtds.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:jtds:sqlserver://IMASHI-PC/LMS_DB;instance=MSSQLSERVER;user=Imashi;password=imashi");
 
         return con;
     }

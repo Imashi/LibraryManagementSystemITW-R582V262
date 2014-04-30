@@ -9,8 +9,7 @@ package se.wsu.lmw.Controls;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
-import se.wsu.lmw.Controls.load_data.LoadAuthor;
+import javax.swing.JOptionPane;
 import se.wsu.lmw.Database.DB;
 
 /**
@@ -23,9 +22,23 @@ public class delete {
             {
         try {
             
-            
+            String ask="Successfully deleted";
             DB.myConnection().createStatement().executeUpdate("delete from members where MemberID = '" + mid+ "'");
+            JOptionPane.showMessageDialog(null, ask, "Successfull", 1);
+             
             
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(delete.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }
+    
+      public void delete_librarian(String lib) throws SQLException
+            {
+        try {
+            String ask="Successfully deleted";
+            
+            DB.myConnection().createStatement().executeUpdate("delete from librian where LibrianID = '" + lib+ "'");
+           JOptionPane.showMessageDialog(null, ask, "Successfull", 1);
              
             
         } catch (ClassNotFoundException ex) {

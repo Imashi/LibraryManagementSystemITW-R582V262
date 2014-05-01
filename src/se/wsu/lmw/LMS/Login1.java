@@ -58,8 +58,8 @@ public class Login1 extends javax.swing.JFrame {
 
             DB.myConnection().createStatement().executeUpdate("delete  from currentloggers where LibrianID>='000'");
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error @ LOGIn1 91", "err", JOptionPane.OK_OPTION);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error @ LOGIn1 ==   "+ex.getMessage(), "err", JOptionPane.OK_OPTION);
         }
 
         try {
@@ -70,8 +70,8 @@ public class Login1 extends javax.swing.JFrame {
                 jComboBox1.setModel(new DefaultComboBoxModel(users));
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error @ LOGIn 106", "err", JOptionPane.OK_OPTION);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error @ LOGIn 1ggg06=  "+ex, "err", JOptionPane.OK_OPTION);
         }
     }
 

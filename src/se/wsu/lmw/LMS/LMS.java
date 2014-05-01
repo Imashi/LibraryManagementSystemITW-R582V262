@@ -14,6 +14,7 @@ public class LMS {
         // TODO code application logic here
          Login1 h=new Login1();
         h.setVisible(true);
+        ///System.out.println(java.lang.System.getProperty('java.library.path'));
     }
     
 }

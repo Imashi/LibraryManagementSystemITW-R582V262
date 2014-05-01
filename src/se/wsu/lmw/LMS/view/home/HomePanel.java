@@ -7,16 +7,19 @@
 package se.wsu.lmw.LMS.view.home;
 
 import se.wsu.lmw.LMS.view.home.Home;
-//import se.wsu.lmw.LMS.view.search.Search_By_Publisher1;
-//import se.wsu.lmw.LMS.view.search.Search_By_AuthorNameID1;
-//import se.wsu.lmw.LMS.view.search.Search_BookNameID1;
-//import se.wsu.lmw.LMS.view.Register.Register_New_Member1;
-//import se.wsu.lmw.LMS.view.Register.Register_New_Librian;
-//import se.wsu.lmw.LMS.view.Register.Register_New_Book1;
+import se.wsu.lmw.LMS.view.search.Search_By_Publisher1;
+import se.wsu.lmw.LMS.view.search.Search_By_AuthorNameID1;
+import se.wsu.lmw.LMS.view.search.Search_BookNameID1;
+import se.wsu.lmw.LMS.view.Register.Register_New_Member1;
+import se.wsu.lmw.LMS.view.Register.Register_New_Librian;
+import se.wsu.lmw.LMS.view.Register.Register_New_Book1;
 import se.wsu.lmw.Controls.Date.Date1;
 import se.wsu.lmw.Controls.PanelLoad1;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import se.wsu.lmw.LMS.BookReturn1;
 import se.wsu.lmw.LMS.IaasuABook1;
@@ -34,13 +37,13 @@ public class HomePanel extends javax.swing.JPanel {
     String lid;
     String librian;
 
-    //Register_New_Member1 rnm;
-    //Register_New_Book1 rnb;
-    //Register_New_Librian rnl;
-    //Search_BookNameID1 sbnid;
-    //Search_By_AuthorNameID1 sba;
+    Register_New_Member1 rnm;
+    Register_New_Book1 rnb;
+    Register_New_Librian rnl;
+    Search_BookNameID1 sbnid;
+    Search_By_AuthorNameID1 sba;
     IaasuABook1 isue;
-    //Search_By_Publisher1 sbp;
+    Search_By_Publisher1 sbp;
     BookReturn1 br;
     Librian_Details1 sel;
     Member_Details1 md;
@@ -67,8 +70,7 @@ public class HomePanel extends javax.swing.JPanel {
         //---------date---------------        
         jLabel10.setText(Date1.myDate());
         //----------------------------
-        jLabel17.setForeground(Color.BLACK);
-        jLabel16.setForeground(Color.BLACK);
+        
         jLabel1.setForeground(Color.BLACK);
         jLabel2.setForeground(Color.BLACK);
         jLabel3.setForeground(Color.BLACK);
@@ -92,7 +94,7 @@ public class HomePanel extends javax.swing.JPanel {
             jTaskPaneGroup2.setVisible(false);
             jTaskPaneGroup3.setVisible(false);
             jTaskPaneGroup4.setVisible(false);
-            jTaskPaneGroup5.setVisible(false);
+            
             jTaskPaneGroup6_Profile.setVisible(false);
         }
         new Thread(new Runnable() {
@@ -165,9 +167,6 @@ public class HomePanel extends javax.swing.JPanel {
         jTaskPaneGroup4 = new com.l2fprod.common.swing.JTaskPaneGroup();
         jLabel7 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTaskPaneGroup5 = new com.l2fprod.common.swing.JTaskPaneGroup();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jTaskPaneGroup6_Profile = new com.l2fprod.common.swing.JTaskPaneGroup();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -497,38 +496,6 @@ public class HomePanel extends javax.swing.JPanel {
 
         jTaskPane1.add(jTaskPaneGroup4);
 
-        jTaskPaneGroup5.setTitle("Reports");
-
-        jLabel16.setText("Print Book List");
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel16MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel16MouseExited(evt);
-            }
-        });
-        jTaskPaneGroup5.getContentPane().add(jLabel16);
-
-        jLabel17.setText("Print Borrowed Book List");
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel17MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel17MouseExited(evt);
-            }
-        });
-        jTaskPaneGroup5.getContentPane().add(jLabel17);
-
-        jTaskPane1.add(jTaskPaneGroup5);
-
         jTaskPaneGroup6_Profile.setTitle("Profile");
 
         jLabel18.setText("Search / Edit Librarian Details");
@@ -599,9 +566,13 @@ public class HomePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-// TODO add your handling code here:
-//    sbnid = new Search_BookNameID1();
-//    PanelLoad1.LoadPanel(sbnid, HomePanel.jPanel3);
+        try {
+            // TODO add your handling code here:
+            sbnid = new Search_BookNameID1();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    PanelLoad1.LoadPanel(sbnid, HomePanel.jPanel3);
     System.gc();
 
 }//GEN-LAST:event_jLabel2MouseClicked
@@ -621,8 +592,8 @@ private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:even
 
 private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
 // TODO add your handling code here:
-//    sba = new Search_By_AuthorNameID1();
-//    PanelLoad1.LoadPanel(sba, HomePanel.jPanel3);
+    sba = new Search_By_AuthorNameID1();
+    PanelLoad1.LoadPanel(sba, HomePanel.jPanel3);
 
 }//GEN-LAST:event_jLabel3MouseClicked
 
@@ -640,8 +611,8 @@ private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:even
 
 private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 // TODO add your handling code here:
-//    sbp = new Search_By_Publisher1();
-//    PanelLoad1.LoadPanel(sbp, HomePanel.jPanel3);
+    sbp = new Search_By_Publisher1();
+    PanelLoad1.LoadPanel(sbp, HomePanel.jPanel3);
 }//GEN-LAST:event_jLabel4MouseClicked
 
 private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
@@ -657,8 +628,8 @@ private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:even
 }//GEN-LAST:event_jLabel4MouseExited
 
 private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-    //rnm = new Register_New_Member1(librian, lid);
-    //PanelLoad1.LoadPanel(rnm, HomePanel.jPanel3);
+    rnm = new Register_New_Member1(librian, lid);
+    PanelLoad1.LoadPanel(rnm, HomePanel.jPanel3);
 }//GEN-LAST:event_jLabel12MouseClicked
 
 private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
@@ -674,8 +645,8 @@ private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 
 private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
 // TODO add your handling code here:
-    //rnb = new Register_New_Book1(librian, lid);
-    //PanelLoad1.LoadPanel(rnb, HomePanel.jPanel3);
+    rnb = new Register_New_Book1(librian, lid);
+    PanelLoad1.LoadPanel(rnb, HomePanel.jPanel3);
 
 }//GEN-LAST:event_jLabel13MouseClicked
 
@@ -692,8 +663,8 @@ private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 }//GEN-LAST:event_jLabel13MouseExited
 
 private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-    //rnl = new Register_New_Librian(librian, lid);
-    //PanelLoad1.LoadPanel(rnl, HomePanel.jPanel3);
+    rnl = new Register_New_Librian(librian, lid);
+    PanelLoad1.LoadPanel(rnl, HomePanel.jPanel3);
 }//GEN-LAST:event_jLabel14MouseClicked
 
 private void jLabel14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseEntered
@@ -740,8 +711,8 @@ private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:even
 }//GEN-LAST:event_jLabel7MouseExited
 
 private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-    //br = new BookReturn1(librian, lid);
-    //PanelLoad1.LoadPanel(br, HomePanel.jPanel3);
+    br = new BookReturn1(librian, lid);
+    PanelLoad1.LoadPanel(br, HomePanel.jPanel3);
 
 }//GEN-LAST:event_jLabel15MouseClicked
 
@@ -756,34 +727,6 @@ private void jLabel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     jLabel15.setForeground(Color.BLACK);
     System.gc();
 }//GEN-LAST:event_jLabel15MouseExited
-
-private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-    //Reports.AllbookReport("C:/Users/Ravimal Kumaranayaka/Documents/NetBeansProjects/Toner/AllBookReport.jrxml");
-}//GEN-LAST:event_jLabel16MouseClicked
-
-private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
-    jLabel16.setForeground(Color.DARK_GRAY);
-    System.gc();
-}//GEN-LAST:event_jLabel16MouseEntered
-
-private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
-    jLabel16.setForeground(Color.BLACK);
-    System.gc();
-}//GEN-LAST:event_jLabel16MouseExited
-
-private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-    //Reports.AllbookReport("C:/Users/Ravimal Kumaranayaka/Documents/NetBeansProjects/Toner/BorrowedBooksReport.jrxml");
-}//GEN-LAST:event_jLabel17MouseClicked
-
-private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
-    jLabel17.setForeground(Color.DARK_GRAY);
-    System.gc();
-}//GEN-LAST:event_jLabel17MouseEntered
-
-private void jLabel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseExited
-    jLabel17.setForeground(Color.BLACK);
-    System.gc();
-}//GEN-LAST:event_jLabel17MouseExited
 
 private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
     sel = new Librian_Details1(librian, lid);
@@ -802,8 +745,8 @@ private void jLabel18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 }//GEN-LAST:event_jLabel18MouseExited
 
 private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
-    //md = new Member_Details1();
-    //PanelLoad1.LoadPanel(md, HomePanel.jPanel3);
+    md = new Member_Details1();
+    PanelLoad1.LoadPanel(md, HomePanel.jPanel3);
 
 }//GEN-LAST:event_jLabel19MouseClicked
 
@@ -818,8 +761,8 @@ private void jLabel19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 }//GEN-LAST:event_jLabel19MouseExited
 
 private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-    //User_Privilages up = new User_Privilages(librian, lid);
-    //PanelLoad1.LoadPanel(up, Home.jPanel2);
+    User_Privilages up = new User_Privilages(librian, lid);
+    PanelLoad1.LoadPanel(up, Home.jPanel2);
 }//GEN-LAST:event_jLabel21MouseClicked
 
 private void jLabel21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseExited
@@ -876,8 +819,8 @@ private void jLabel23MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 
 private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
     if (lblLibrian_on_Duty.getText().contains("Admin") == true) {
-//        Settings1 S = new Settings1(librian, lid);
-//        PanelLoad1.LoadPanel(S, Home.jPanel2);
+        Settings1 S = new Settings1(librian, lid);
+        PanelLoad1.LoadPanel(S, Home.jPanel2);
     } else {
         JOptionPane.showMessageDialog(null, "You Don't Have Permission To view Settings");
     }
@@ -918,8 +861,8 @@ private void jLabel28MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 }//GEN-LAST:event_jLabel28MouseExited
 
 private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
-//    User_Privilages up = new User_Privilages(librian, lid);
-//    PanelLoad1.LoadPanel(up, Home.jPanel2);
+    User_Privilages up = new User_Privilages(librian, lid);
+    PanelLoad1.LoadPanel(up, Home.jPanel2);
 }//GEN-LAST:event_jLabel29MouseClicked
 
 private void jLabel29MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseEntered
@@ -971,8 +914,6 @@ private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1002,7 +943,6 @@ private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup2;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup3;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup4;
-    private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup5;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup6_Profile;
     private javax.swing.JLabel lblLibrian_ID;
     private javax.swing.JLabel lblLibrian_on_Duty;

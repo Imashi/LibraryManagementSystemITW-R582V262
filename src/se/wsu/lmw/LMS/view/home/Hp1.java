@@ -391,21 +391,21 @@ private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
 
 private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
     if (jLabel12.getText().contains("Admin") == true) {
-//        Settings1 S = new Settings1(Lib_Name, LID);
-//        PanelLoad1.LoadPanel(S, Home.jPanel2);
+        Settings1 S = new Settings1(Lib_Name, LID);
+        PanelLoad1.LoadPanel(S, Home.jPanel2);
     } else {
         JOptionPane.showMessageDialog(null, "Only Admin can Go to Settings");
     }
 }//GEN-LAST:event_jLabel9MouseClicked
 
 private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-//    User_Privilages up = new User_Privilages(Lib_Name, LID);
-//    PanelLoad1.LoadPanel(up, Home.jPanel2);
+    User_Privilages up = new User_Privilages(Lib_Name, LID);
+    PanelLoad1.LoadPanel(up, Home.jPanel2);
 }//GEN-LAST:event_jLabel11MouseClicked
 
 private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-//    User_Privilages up = new User_Privilages(Lib_Name, LID);
-//    PanelLoad1.LoadPanel(up, Home.jPanel2);
+    User_Privilages up = new User_Privilages(Lib_Name, LID);
+    PanelLoad1.LoadPanel(up, Home.jPanel2);
 }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked

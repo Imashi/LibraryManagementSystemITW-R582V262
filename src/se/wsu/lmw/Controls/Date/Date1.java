@@ -12,7 +12,7 @@ public class Date1 {
    public static String myDate(){
         String today;
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         today = dateFormat.format(calendar.getTime()).toString();
         return today;
     }

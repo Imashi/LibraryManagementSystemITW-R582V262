@@ -16,13 +16,15 @@ import se.wsu.lmw.Database.DB;
  *
  * @author imashi
  */
-public class Load_combo {
+public class GetBookDetails {
+    
+    
     ResultSet resultSet=null;
-     public ResultSet getCat() throws ClassNotFoundException
+     public ResultSet getBook() throws ClassNotFoundException
         {
         try {
             try {
-                resultSet = DB.myConnection().createStatement().executeQuery("SELECT CategoryName FROM category");
+                resultSet = DB.myConnection().createStatement().executeQuery("SELECT * FROM book");
             } catch (SQLException ex) {
                 Logger.getLogger(Load_combo.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -34,11 +36,11 @@ public class Load_combo {
         return resultSet;
         }
      
-     public ResultSet getrackno() throws ClassNotFoundException
+     public ResultSet getBorrowed() throws ClassNotFoundException
         {
         try {
             try {
-                resultSet = DB.myConnection().createStatement().executeQuery("SELECT RackID FROM rack");
+                resultSet = DB.myConnection().createStatement().executeQuery("SELECT * FROM borrowedbooks");
             } catch (SQLException ex) {
                 Logger.getLogger(Load_combo.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -49,6 +51,6 @@ public class Load_combo {
         
         return resultSet;
         }
-        
     
 }
+

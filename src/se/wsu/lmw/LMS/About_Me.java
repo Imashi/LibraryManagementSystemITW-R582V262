@@ -67,7 +67,7 @@ String librian_name;
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Your self!!!!!");
+        jTextArea1.setText("Imashi Wijewickrama");
         jScrollPane1.setViewportView(jTextArea1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 730, 230));

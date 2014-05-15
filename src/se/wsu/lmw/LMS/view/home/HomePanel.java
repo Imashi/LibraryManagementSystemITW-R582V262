@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import se.wsu.lmw.Controls.Report;
 import se.wsu.lmw.LMS.BookReturn1;
 import se.wsu.lmw.LMS.IaasuABook1;
 import se.wsu.lmw.LMS.Librian_Details1;
@@ -170,6 +171,9 @@ public class HomePanel extends javax.swing.JPanel {
         jTaskPaneGroup6_Profile = new com.l2fprod.common.swing.JTaskPaneGroup();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jTaskPaneGroup5 = new com.l2fprod.common.swing.JTaskPaneGroup();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -232,7 +236,7 @@ public class HomePanel extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
+                .addContainerGap(168, Short.MAX_VALUE)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -527,6 +531,38 @@ public class HomePanel extends javax.swing.JPanel {
         jTaskPaneGroup6_Profile.getContentPane().add(jLabel19);
 
         jTaskPane1.add(jTaskPaneGroup6_Profile);
+
+        jTaskPaneGroup5.setTitle("Reports");
+
+        jLabel16.setText("Print Book List");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel16MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel16MouseExited(evt);
+            }
+        });
+        jTaskPaneGroup5.getContentPane().add(jLabel16);
+
+        jLabel17.setText("Print Borrowed Book List");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel17MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel17MouseExited(evt);
+            }
+        });
+        jTaskPaneGroup5.getContentPane().add(jLabel17);
+
+        jTaskPane1.add(jTaskPaneGroup5);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -905,6 +941,35 @@ private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     jLabel28.setVisible(false);
 }//GEN-LAST:event_jPanel3MouseEntered
 
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        
+        new Report().Create_report();
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
+        jLabel16.setForeground(Color.DARK_GRAY);
+        System.gc();
+    }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
+        jLabel16.setForeground(Color.BLACK);
+        System.gc();
+    }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        new Report().Create_report2();
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
+        jLabel17.setForeground(Color.DARK_GRAY);
+        System.gc();
+    }//GEN-LAST:event_jLabel17MouseEntered
+
+    private void jLabel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseExited
+        jLabel17.setForeground(Color.BLACK);
+        System.gc();
+    }//GEN-LAST:event_jLabel17MouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -914,6 +979,8 @@ private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -943,6 +1010,7 @@ private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup2;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup3;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup4;
+    private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup5;
     private com.l2fprod.common.swing.JTaskPaneGroup jTaskPaneGroup6_Profile;
     private javax.swing.JLabel lblLibrian_ID;
     private javax.swing.JLabel lblLibrian_on_Duty;

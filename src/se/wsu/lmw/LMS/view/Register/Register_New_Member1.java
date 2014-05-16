@@ -113,7 +113,7 @@ public class Register_New_Member1 extends javax.swing.JPanel {
 
         jLabel4.setText("Member Middle Name :");
 
-        jLabel5.setText("Member SurName :");
+        jLabel5.setText("Member Last Name  :");
 
         jLabel6.setText("Mobile Number :");
 
